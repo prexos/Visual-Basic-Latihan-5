@@ -1,0 +1,72 @@
+Private Sub cetak_Click()
+ 'Load Form 2
+ Load Form2
+ 'Menampilkan Form 2
+ Form2.Show
+ 'Form 2 adalah Full Screen
+ Form2.WindowState = 2
+ 
+ 'Menginput dari Form 1 ke Form 2
+ Form2.Text1 = Form1.Text1
+ Form2.Text2 = Form1.Text2
+ Form2.Text3 = Form1.Text3
+ Form2.Text4 = Form1.Text4
+ Form2.Text5 = Form1.Text5
+ Form2.Text6 = Form1.Text6
+ Form2.Text7 = Form1.Text7
+ Form2.Combo1 = Form1.Combo1
+ 
+ 'Text Form 2 di nonaktifkan
+ Form2.Combo1.Enabled = False
+ Form2.Text1.Enabled = False
+ Form2.Text2.Enabled = False
+ Form2.Text3.Enabled = False
+ Form2.Text4.Enabled = False
+ Form2.Text5.Enabled = False
+ Form2.Text6.Enabled = False
+ Form2.Text7.Enabled = False
+End Sub
+
+Private Sub Form_Activate()
+ 'Form Window
+ Form1.WindowState = 2
+ 
+ 'Combo 1
+ Combo1.AddItem "Akuntan"
+ Combo1.AddItem "Manajer"
+ Combo1.AddItem "CEO"
+ Combo1.AddItem "Satpam"
+ Combo1.AddItem "Helper"
+End Sub
+
+Private Sub fullscrn_Click()
+ 'Jika Window State adalah Full Screen
+ If Form1.WindowState = 2 Then
+ 'Lalu melakukan Restore Down
+ Form1.WindowState = 0
+ Else
+ 'Lainnya melakukan Full Screen lagi
+ Form1.WindowState = 2
+ End If
+End Sub
+
+Private Sub minimizescrnn_Click()
+ 'Tombol ini digunakan untuk minimize screen
+ Form1.WindowState = 1
+End Sub
+
+Private Sub selesai_Click()
+ End
+End Sub
+
+Private Sub Text3_LostFocus()
+ 'Menghitung untuk isi dari Text4 (Tunjangan)
+ Text4 = Val(Text3.Text) * 0.25
+ Text5.SetFocus
+End Sub
+
+Private Sub Text5_LostFocus()
+ Text6 = Val(Val(Text3) + Val(Text4) + Val(Text5)) * 0.1
+ Text7 = Val(Val(Text3) + Val(Text4) + Val(Text5)) - Val(Text6)
+ cetak.SetFocus
+End Sub

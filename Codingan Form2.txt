@@ -1,0 +1,6 @@
+Private Sub backbttn_Click()
+ 'Menampilkan Form 1
+ Form1.Show
+ 'Fokus kepada Text 1
+ Form1.cetak.SetFocus
+End Sub
